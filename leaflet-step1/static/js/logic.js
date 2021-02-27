@@ -85,7 +85,7 @@ function createMap(earthquakes) {
 
     // method that we will use to update the control based on feature properties passed
     info.update = function (props) {
-        this._div.innerHTML = '<h4>Earthquakes from last 7 days</h4>' +  (props ?
+        this._div.innerHTML = '<h4>Earthquakes Magnitude 1.0+ last 7 days</h4>' +  (props ?
             '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
             : 'Click a bubble');
     };
