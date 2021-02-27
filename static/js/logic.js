@@ -9,7 +9,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: API_KEY
 }).addTo(mymap);
 
+// Store our API endpoint inside queryUrl
 var url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson"
+
 
 d3.json(url, function(data){
     
@@ -36,7 +38,8 @@ d3.json(url, function(data){
             // fillColor: "blue",
             // // Adjust radius
             radius: magnitude* 20000
-            }).bindPopup("<h1>" + element.properties.place + "</h1> <hr> <h3>Magnitude: " + magnitude + "</h3> <h3>Depth: " + coordinates[2] + "</h3>").addTo(mymap)
+            }).bindPopup("<h1>" + element.properties.place + "</h1> <hr> <h3>Magnitude: " + magnitude + "</h3> <h3>Depth: " + coordinates[2] + "</h3> <h3>Date: "
+            + new Date(element.properties.time) + "</h3").addTo(mymap)
 
     
     })  
@@ -56,7 +59,3 @@ d3.json(url, function(data){
     };
     legend.addTo(mymap);
 })
-
-
-
-var state
